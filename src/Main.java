@@ -1,15 +1,61 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import model.Room;
+import model.Reservation;
+import service.HotelManager;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import java.time.LocalDate;
+
+/**
+ * Entry point for the Hotel Booking System.
+ * This class demonstrates the core system functionality.
+ */
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create hotel manager
+        HotelManager hotelManager = new HotelManager();
+
+        // Add rooms to the hotel
+        hotelManager.addRoom(new Room(101, "Single", 80.0));
+        hotelManager.addRoom(new Room(102, "Double", 120.0));
+        hotelManager.addRoom(new Room(103, "Suite", 200.0));
+
+        System.out.println("=== Available Rooms ===");
+        hotelManager.getAvailableRooms().forEach(System.out::println);
+
+        // Create a reservation
+        System.out.println("\n=== Creating Reservation ===");
+        Reservation reservation = hotelManager.createReservation(
+                "Maya",
+                101,
+                LocalDate.now(),
+                LocalDate.now().plusDays(2)
+        );
+
+        System.out.println("Reservation created:");
+        System.out.println(reservation);
+
+        // Show available rooms after booking
+        System.out.println("\n=== Available Rooms After Booking ===");
+        hotelManager.getAvailableRooms().forEach(System.out::println);
+
+        // Check in
+        System.out.println("\n=== Checking In ===");
+        hotelManager.checkIn(reservation.getReservationId());
+        System.out.println("Checked in reservation:");
+        System.out.println(reservation);
+
+        // Check out
+        System.out.println("\n=== Checking Out ===");
+        hotelManager.checkOut(reservation.getReservationId());
+        System.out.println("Checked out reservation:");
+        System.out.println(reservation);
+
+        // Show available rooms after checkout
+        System.out.println("\n=== Available Rooms After Checkout ===");
+        hotelManager.getAvailableRooms().forEach(System.out::println);
+
+        // Show total price
+        System.out.println("\nTotal price: $" + reservation.calculateTotalPrice());
     }
 }
