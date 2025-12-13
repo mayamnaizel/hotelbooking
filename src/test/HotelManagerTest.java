@@ -11,9 +11,9 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit tests for HotelManager class.
- */
+
+ //unit tests for HotelManager class.
+
 public class HotelManagerTest {
 
     private HotelManager hotelManager;
@@ -27,9 +27,9 @@ public class HotelManagerTest {
         hotelManager.addRoom(new Room(102, "Double", 120.0));
     }
 
-    /**
-     * Test that a reservation can be created successfully.
-     */
+
+     //test that a reservation can be created successfully.
+
     @Test
     void testCreateReservation() {
         Reservation reservation = hotelManager.createReservation(
@@ -44,9 +44,9 @@ public class HotelManagerTest {
         assertFalse(reservation.getRoom().isAvailable());
     }
 
-    /**
-     * Test that only available rooms are returned.
-     */
+
+     //test that only available rooms are returned.
+
     @Test
     void testGetAvailableRooms() {
         hotelManager.createReservation(
@@ -60,9 +60,9 @@ public class HotelManagerTest {
         assertEquals(102, hotelManager.getAvailableRooms().get(0).getRoomNumber());
     }
 
-    /**
-     * Test total price calculation for a reservation.
-     */
+
+    //test total price calculation for a reservation.
+
     @Test
     void testCalculateTotalPrice() {
         Reservation reservation = hotelManager.createReservation(
@@ -76,9 +76,9 @@ public class HotelManagerTest {
         assertEquals(expectedPrice, reservation.calculateTotalPrice());
     }
 
-    /**
-     * Test that cancelling a reservation frees the room.
-     */
+
+     //test that cancelling a reservation frees the room.
+
     @Test
     void testCancelReservation() {
         Reservation reservation = hotelManager.createReservation(

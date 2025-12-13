@@ -37,7 +37,7 @@ public class Reservation {
         this.checkedIn = false; // guest is not checked in initially
     }
 
-    // Getters
+    // getters
 
     public int getReservationId() {
         return reservationId;
@@ -63,7 +63,7 @@ public class Reservation {
         return endDate;
     }
 
-    // Behaviour methods
+    // behaviour methods
 
     /**
      * Marks the reservation as checked in.

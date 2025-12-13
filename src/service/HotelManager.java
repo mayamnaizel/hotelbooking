@@ -24,9 +24,7 @@ public class HotelManager {
         this.reservations = new ArrayList<>();
     }
 
-    /* =========================
-       ROOM MANAGEMENT (ADMIN)
-       ========================= */
+    //Room management - admin
 
     /**
      * Adds a new room to the hotel.
@@ -61,12 +59,10 @@ public class HotelManager {
         return availableRooms;
     }
 
-    /* =========================
-       RESERVATION MANAGEMENT
-       ========================= */
+ //Reservation Management
 
     /**
-     * Creates a reservation for a given room.
+     * creates a reservation for a room.
      *
      * @param guestName name of the guest
      * @param roomNumber room number to reserve
@@ -146,7 +142,7 @@ public class HotelManager {
     }
 
     /**
-     * Returns all reservations.
+     * Returns reservations.
      *
      * @return list of reservations
      */
@@ -154,9 +150,7 @@ public class HotelManager {
         return reservations;
     }
 
-    /* =========================
-       HELPER METHODS
-       ========================= */
+//helped method
 
     private Room findRoomByNumber(int roomNumber) {
         for (Room room : rooms) {

@@ -25,7 +25,7 @@ public class Room {
         this.available = true; // rooms start as available
     }
 
-    // Getters
+    // getters
 
     public int getRoomNumber() {
         return roomNumber;
