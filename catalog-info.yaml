@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hotelbooking
+  description: A hotel booking application
+  annotations:
+    github.com/project-slug: mayamnaizel/hotelbooking
+spec:
+  type: service
+  lifecycle: production
+  owner: guests
+```
+
+You can create it directly on GitHub: go to your repo → **Add file** → **Create new file** → name it `catalog-info.yaml` → paste the content → commit.
+
+## Step 2: Register it in Backstage
+
+1. In your Backstage UI, click **"Create"** in the left sidebar
+2. Click **"Register Existing Component"**
+3. Paste this URL:
+```
+   https://github.com/mayamnaizel/hotelbooking/blob/main/catalog-info.yaml
